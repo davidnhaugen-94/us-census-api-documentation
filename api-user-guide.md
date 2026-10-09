@@ -163,6 +163,7 @@ Examples to get results for multiple variable values:
 You can create a predicate of a range of values for numeric (integer and float) variables. Please note that you cannot build a predicate with wildcards for numeric variables.
 
 Examples from County Business Patterns and the American Community Survey:
+
 - `&PAYANN=100000` – restricts the result to include data where annual payroll is equal to 100,000
 - `&PAYANN=200000&PAYANN=300000` – restricts the result to include data where annual payroll is equal to 200,000 or 300,000
 - `&PAYANN=0:399999` – restricts the result to include data with annual payroll less than 400,000
@@ -213,6 +214,7 @@ The results from your Census Data API data queries will return in JavaScript Obj
 The group function group([insert table ID]) allows you to get results for an entire table in one easy command; e.g. group(S0101). It provides results for all variables without having to individually include them in the API call. Even if the table has more than 50 variables, the group call will provide results for all variables in that table.
 
 For example, this API query provides results for all 912 variables for table S0101 from the American Community Survey
+
 `https://api.census.gov/data/2019/acs/acs1/subject?get=group(S0101)&for=state:*`
 
 ## Example API Queries
@@ -224,6 +226,7 @@ Following are some examples that give a detailed breakdown of the components of 
 Let’s begin with a query for the Hispanic population by state in the dataset, *Population Estimates: Estimates by Age Group, Sex, Race, and Hispanic Origin*. You will find this dataset listed on the Census Data API [Datasets page](https://api.census.gov/data.html) of the Discovery Tool:
 
 Format queries as a URL, as follows (use Chrome or Firefox):
+
 `https://api.census.gov/data/2019/pep/charagegroups?get=NAME,POP&HISP=2&for=state:*`
 
 Assemble components of this query by following these steps:
@@ -457,7 +460,7 @@ Assemble components of this query by following these steps:
 
 4. Add ?get= to the query:
 
-  `https://api.census.gov/data/timeseries/intltrade/exports/enduse?get=`
+   `https://api.census.gov/data/timeseries/intltrade/exports/enduse?get=`
 
    Add your variables:
    
@@ -569,8 +572,9 @@ As an example, consider the fully qualified GEO ID for New York City, NY: 160000
 | United States – Rural | `0400043US51`<br />040 = Summary level for state<br />00 = No geographic variant<br />43 = Rural geographic component<br />US = United States<br />51 = Virginia | `&ucgid=0400043US51` |
 
 The ucgid predicate allows you to specify multiple geographies in the same API query by listing each desired fully qualified GEO ID separated by a comma. For example:
-- &ucgid=0400000US06,0400000US41 – Provides results for California and Oregon
--  &ucgid=0400000US06,0500000US06059,1600000US0602000 – Provides results for California, Orange County CA, and Anaheim city CA
+
+- `&ucgid=0400000US06,0400000US41` – Provides results for California and Oregon
+- `&ucgid=0400000US06,0500000US06059,1600000US0602000` – Provides results for California, Orange County CA, and Anaheim city CA
 
 Remember, &ucgid is an alternative option instead of using the standard geography predicates (&for and &in). An example query below shows how to use &ucgid to get total population for California and Oregon from the 2022 ACS 1-Year Data Profiles:
 
@@ -596,7 +600,8 @@ The Census Bureau offers several options to find fully qualified GEO IDs for a p
 1. [TIGER/Line Shapefiles](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html): Reference the GEOIDFQ field
 2. [TIGER/Line Geodatabases](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-geodatabase-file.html): Reference the GEOIDFQ field
 3. API: Include the GEO_ID variable in your API query. Example:
-   https://api.census.gov/data/2022/acs/acs5/profile?get=GEO_ID,NAME&for=congressional%20district:*&in=state:01
+   
+   `https://api.census.gov/data/2022/acs/acs5/profile?get=GEO_ID,NAME&for=congressional%20district:*&in=state:01`
 
    ![Example API Query and Output with GEO_ID Variable](images/figure5-exampleapiquery.png)
 
