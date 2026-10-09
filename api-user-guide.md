@@ -58,7 +58,7 @@ You can find a complete list of available datasets in the [API Discovery Tool](h
 
 Below are the terms you will need to be familiar with when running an API query, like this one for the dataset, Vintage 2014 Population Estimates: US, State, and PR Total Population and Components of Change (Use Firefox or Chrome):
 
-https://api.census.gov/data/2014/pep/natstprc?get=STNAME,POP&DATE_=7&for=state:*
+`https://api.census.gov/data/2014/pep/natstprc?get=STNAME,POP&DATE_=7&for=state:*`
 
 > **Tip**: We recommend that you use Chrome or Firefox when building and running API queries.
 
@@ -80,7 +80,7 @@ You can include up to 50 variables in the same API call, separated by commas.
 
 Most of the time, you have the option to choose the variables you want to include in your API call, but occasionally some datasets have required variables. Required variables are the parameters that you need to include in your search; otherwise, your search will produce no data and will return an error message. The variable table for each dataset lists which variables are required, as shown below in the variables page for the [2014 Population Estimates (Total and Components of Change) Dataset](https://api.census.gov/data/2014/pep/natstprc/variables.html).
 
-![Variable Table for 2014 Population Estimates,, with the Required column circled](images/figure3-variabletable.png)
+![Variable Table for 2014 Population Estimates, with the Required column circled](images/figure3-variabletable.png)
 
 *Figure 3: Variable Table for 2014 Population Estimates: US, State, and PR Total Population and Components of Change*
 
@@ -98,7 +98,7 @@ Attributes are available in many datasets and you can explore them in the discov
 
 The get function (get=) specifies the required and selected variables you are requesting the API to give you. For example (use Chrome or Firefox):
 
-https://api.census.gov/data/2014/pep/natstprc?get=STNAME,POP&DATE_=7&for=state:*
+`https://api.census.gov/data/2014/pep/natstprc?get=STNAME,POP&DATE_=7&for=state:*`
 
 ### Predicate
 
@@ -106,7 +106,7 @@ The predicate specifies how variables should be filtered or limited, and you can
 
 In this example, the predicate limits the search on the July 1, 2014 (&DATE_=7) population or housing unit estimate and for all states (&for=state:*):
 
-https://api.census.gov/data/2014/pep/natstprc?get=STNAME,POP&DATE_=7&for=state:*
+`https://api.census.gov/data/2014/pep/natstprc?get=STNAME,POP&DATE_=7&for=state:*`
 
 **Please note**:
 
@@ -122,15 +122,15 @@ The predicate ***&for*** restricts the variables by geography at various levels,
 
 Examples to get results for a single geography:
 
-- &for=state:01 – restricts the result to include only Alabama
--  &for=county:001&in=state:01 – restricts the result to include only Autauga County, Alabama
-- &for=county%20(or%20part):073&in=state:01%20place:07000 – restricts the result to include the portion of Jefferson County (county:073), Alabama that is within Birmingham city (place:07000)
+- `&for=state:01` – restricts the result to include only Alabama
+- `&for=county:001&in=state:01` – restricts the result to include only Autauga County, Alabama
+- `&for=county%20(or%20part):073&in=state:01%20place:07000` – restricts the result to include the portion of Jefferson County (county:073), Alabama that is within Birmingham city (place:07000)
 
 Examples to get results for multiple geographies:
-- &for=state:01,13 – retrieves the result for Alabama and Georgia
-- &for=state:* – retrieves the result for all states
-- &for=county:*&in=state:01 – restricts the result to include all counties in Alabama
-- &for=county%20(or%20part):*&in=state:01%20place:62328 – restricts the result to include all counties within Prattville city (place: 62328), Alabama
+- `&for=state:01,13` – retrieves the result for Alabama and Georgia
+- `&for=state:*` – retrieves the result for all states
+- `&for=county:*&in=state:01` – restricts the result to include all counties in Alabama
+- `&for=county%20(or%20part):*&in=state:01%20place:62328` – restricts the result to include all counties within Prattville city (place: 62328), Alabama
 
 > **Tip**: The “Examples” pages in the discovery tool will list the available geographic levels and predicates for your dataset so you don’t have to build these from scratch.
 
@@ -144,17 +144,17 @@ You can create a predicate of string variables with various restrictions and can
 
 Examples to get results for a single variable value:
 
-- &AGEGROUP=29 – restricts results to include data for people age 18 years and over (example: [2019 Population Estimates Program Characteristics of Age Groups](https://api.census.gov/data/2019/pep/charagegroups.html))
-- &POPGROUP=400 – restricts results to include data for POPGROUP code 400, which corresponds to the Hispanic or Latino population (example: [2019 ACS 1-Year Selected Population Profiles](https://api.census.gov/data/2019/acs/acs1/spp.html)
-- &GEOCOMP=A0 – restricts results to include data for the portion of your geography that is within a metropolitan/micropolitan statistical area (example: [2018 ACS 5-year Data Profiles](https://api.census.gov/data/2019/acs/acs1/spp.html))
-- &PORT=0101 – restricts the result to include data for PORT code 0101, which corresponds to Portland, ME (example: [International Trade – U.S. Exports by Port and Harmonized System](https://api.census.gov/data/timeseries/intltrade/exports/porths.html))
+- `&AGEGROUP=29` – restricts results to include data for people age 18 years and over (example: [2019 Population Estimates Program Characteristics of Age Groups](https://api.census.gov/data/2019/pep/charagegroups.html))
+- `&POPGROUP=400` – restricts results to include data for POPGROUP code 400, which corresponds to the Hispanic or Latino population (example: [2019 ACS 1-Year Selected Population Profiles](https://api.census.gov/data/2019/acs/acs1/spp.html))
+- `&GEOCOMP=A0` – restricts results to include data for the portion of your geography that is within a metropolitan/micropolitan statistical area (example: [2018 ACS 5-year Data Profiles](https://api.census.gov/data/2018/acs/acs5/profile.html))
+- `&PORT=0101` – restricts the result to include data for PORT code 0101, which corresponds to Portland, ME (example: [International Trade – U.S. Exports by Port and Harmonized System](https://api.census.gov/data/timeseries/intltrade/exports/porths.html))
 
 Examples to get results for multiple variable values:
 
-- &POPGROUP=400&POPGROUP=451 – restricts results to include data for POPGROUP codes 400 and 451, which are the codes for the Hispanic or Latino and Non-Hispanic white alone populations (example: [2019 ACS 1-Year Selected Population Profiles}(https://api.census.gov/data/2019/acs/acs1/spp.html))
-- &PORT=0101&PORT=0501 – restricts the result to include only ports with PORT codes 0101 and 0501 which correspond to Portland, ME and Newport, RI (example: [International Trade – U.S. Exports by Port and Harmonized System](https://api.census.gov/data/timeseries/intltrade/exports/porths.html))
-- &PORT=21* – restricts the result to include data for PORT codes starting with 21 which may include but is not limited to 2101, 2102, 2103, and 2104, etc. (example: [International Trade – U.S. Exports by Port and Harmonized System](https://api.census.gov/data/timeseries/intltrade/exports/porths.html))
-- &NAICS2017=23* -- restricts results to include data for all available NAICS codes that begin with 23 in the construction sector (example: [2018 County Business Patterns](https://api.census.gov/data/2018/cbp.html))
+- `&POPGROUP=400&POPGROUP=451` – restricts results to include data for POPGROUP codes 400 and 451, which are the codes for the Hispanic or Latino and Non-Hispanic white alone populations (example: [2019 ACS 1-Year Selected Population Profiles](https://api.census.gov/data/2019/acs/acs1/spp.html))
+- `&PORT=0101&PORT=0501` – restricts the result to include only ports with PORT codes 0101 and 0501 which correspond to Portland, ME and Newport, RI (example: [International Trade – U.S. Exports by Port and Harmonized System](https://api.census.gov/data/timeseries/intltrade/exports/porths.html))
+- `&PORT=21*` – restricts the result to include data for PORT codes starting with 21 which may include but is not limited to 2101, 2102, 2103, and 2104, etc. (example: [International Trade – U.S. Exports by Port and Harmonized System](https://api.census.gov/data/timeseries/intltrade/exports/porths.html))
+- `&NAICS2017=23*` -- restricts results to include data for all available NAICS codes that begin with 23 in the construction sector (example: [2018 County Business Patterns](https://api.census.gov/data/2018/cbp.html))
 
 > **Tip**: You can use wildcards (*) in predicates with string variables and geographies only. You cannot use wildcards in time predicates or predicates with numeric variables.
 
@@ -163,12 +163,12 @@ Examples to get results for multiple variable values:
 You can create a predicate of a range of values for numeric (integer and float) variables. Please note that you cannot build a predicate with wildcards for numeric variables.
 
 Examples from County Business Patterns and the American Community Survey:
-- &PAYANN=100000 – restricts the result to include data where annual payroll is equal to 100,000
-- &PAYANN=200000&PAYANN=300000 – restricts the result to include data where annual payroll is equal to 200,000 or 300,000
-- &PAYANN=0:399999 – restricts the result to include data with annual payroll less than 400,000
-- &PAYANN=400000:500000 – restricts the result to include data where annual payroll is from 400,000 to 500,000
-- &DP05_0001E=100000:999999 – restricts results to include data where total population is from 100,000 to 999,999
-- &DP03_0128PE=0:20 – restricts results to include data where the percent of people in poverty is from 0% to 20%
+- `&PAYANN=100000` – restricts the result to include data where annual payroll is equal to 100,000
+- `&PAYANN=200000&PAYANN=300000` – restricts the result to include data where annual payroll is equal to 200,000 or 300,000
+- `&PAYANN=0:399999` – restricts the result to include data with annual payroll less than 400,000
+- `&PAYANN=400000:500000` – restricts the result to include data where annual payroll is from 400,000 to 500,000
+- `&DP05_0001E=100000:999999` – restricts results to include data where total population is from 100,000 to 999,999
+- `&DP03_0128PE=0:20` – restricts results to include data where the percent of people in poverty is from 0% to 20%
 
 > **Tip**: You can use colons (:) to restrict results by a range of variable values for integer and float variables only. You cannot use colons with string variables.
 
@@ -179,13 +179,13 @@ For some datasets available on the Census Data API, data are stored for multiple
 You can limit by time in most time series datasets by using the predicate &time. Please note that you cannot build a predicate with wildcards (*) for time in a time series dataset. The plus sign (+) is needed for time ranges, such as the time range from 1997 to 2012 (below).
 
 Examples:
-- &time=2015 – restricts the result to include data for 2015
-- &time=from+1997+to+2012 – restricts the result to include data from 1997 to 2012
-- &time=2015-01 – restricts the result to include data for January, 2015
-- &time=2015-Q1 – restricts the result to include data for the first quarter of 2015
-- &time=from+2015-01 – restricts the result to include data from January, 2015 to the present
-- &time=to+2015-01 – restricts the result to include data up to January, 2015
-- &time=from+2015-01+to+2015-06 – restricts the result to include data from January, 2015 to June, 2015
+- `&time=2015` – restricts the result to include data for 2015
+- `&time=from+1997+to+2012` – restricts the result to include data from 1997 to 2012
+- `&time=2015-01` – restricts the result to include data for January, 2015
+- `&time=2015-Q1` – restricts the result to include data for the first quarter of 2015
+- `&time=from+2015-01` – restricts the result to include data from January, 2015 to the present
+- `&time=to+2015-01` – restricts the result to include data up to January, 2015
+- `&time=from+2015-01+to+2015-06` – restricts the result to include data from January, 2015 to June, 2015
 
 Some time series datasets do not include the variable “time.” Instead, they use other variables such as “Year.” For these time-related variables, check the predicate type in the discovery tool to find out whether you can filter it following the guidelines for string or numeric variables described earlier in this document.
 
@@ -213,7 +213,7 @@ The results from your Census Data API data queries will return in JavaScript Obj
 The group function group([insert table ID]) allows you to get results for an entire table in one easy command; e.g. group(S0101). It provides results for all variables without having to individually include them in the API call. Even if the table has more than 50 variables, the group call will provide results for all variables in that table.
 
 For example, this API query provides results for all 912 variables for table S0101 from the American Community Survey
-https://api.census.gov/data/2019/acs/acs1/subject?get=group(S0101)&for=state:*
+`https://api.census.gov/data/2019/acs/acs1/subject?get=group(S0101)&for=state:*`
 
 ## Example API Queries
 
@@ -224,28 +224,41 @@ Following are some examples that give a detailed breakdown of the components of 
 Let’s begin with a query for the Hispanic population by state in the dataset, *Population Estimates: Estimates by Age Group, Sex, Race, and Hispanic Origin*. You will find this dataset listed on the Census Data API [Datasets page](https://api.census.gov/data.html) of the Discovery Tool:
 
 Format queries as a URL, as follows (use Chrome or Firefox):
-https://api.census.gov/data/2019/pep/charagegroups?get=NAME,POP&HISP=2&for=state:*
+`https://api.census.gov/data/2019/pep/charagegroups?get=NAME,POP&HISP=2&for=state:*`
 
 Assemble components of this query by following these steps:
 1. Start your query with the host name:
-https://api.census.gov/data
+
+   `https://api.census.gov/data`
+
 2. Add the data year to the URL:
-https://api.census.gov/data/2019
-This is the year that the data were estimated.
+
+   `https://api.census.gov/data/2019`
+
+   This is the year that the data were estimated.
+
 3. Add the dataset name acronym:
-https://api.census.gov/data/2019/pep/charagegroups
-This is the base URL for this dataset. You can find dataset names by browsing the
-discovery tool: https://api.census.gov/data.html
+
+   `https://api.census.gov/data/2019/pep/charagegroups`
+
+   This is the base URL for this dataset. You can find dataset names by browsing the
+discovery tool: `https://api.census.gov/data.html`
+
 4. Add ?get= to the query
-https://api.census.gov/data/2019/pep/charagegroups?get=
+
+   `https://api.census.gov/data/2019/pep/charagegroups?get=`
+
 5. Add your variables:
-https://api.census.gov/data/2019/pep/charagegroups?get=NAME,POP
+
+   `https://api.census.gov/data/2019/pep/charagegroups?get=NAME,POP`
 
    In this dataset, NAME will provide the geography name and POP will provide the total population. Use a comma to separate each variable; e.g., NAME,POP. You can find the full list of available variables in the variables page for the dataset:
-https://api.census.gov/data/2019/pep/charagegroups/variables.html.
+
+   `https://api.census.gov/data/2019/pep/charagegroups/variables.html`
 
 6. Add variable predicates (if applicable):
-https://api.census.gov/data/2019/pep/charagegroups?get=NAME,POP&HISP=2
+
+   `https://api.census.gov/data/2019/pep/charagegroups?get=NAME,POP&HISP=2`
 
    In this dataset, the variable HISP provides data for three categories:
    - 2 = Hispanic
@@ -255,9 +268,12 @@ https://api.census.gov/data/2019/pep/charagegroups?get=NAME,POP&HISP=2
    You can find this by clicking the link for the [HISP variable](https://api.census.gov/data/2019/pep/charagegroups/variables/HISP.json) in the discovery tool, or by visiting the [documentation page for categorical variables in the Population Estimates datasets](https://www.census.gov/data/developers/data-sets/popest-popproj/popest/popest-vars.Vintage_2019.html).
 
 7. Add your geographies:
-https://api.census.gov/data/2019/pep/charagegroups?get=NAME,POP&HISP=2&for=state:*
 
-   Use a predicate clause starting with an ampersand (&) to separate it from your get clause and then a for followed by an in clause, if needed; e.g., &for=state:. Because we are looking for information in all the states, add a wildcard (*) to indicate all values; e.g., state:*. You can find the full list of available geographies in the examples page for the dataset: https://api.census.gov/data/2019/pep/charagegroups/examples.html
+   `https://api.census.gov/data/2019/pep/charagegroups?get=NAME,POP&HISP=2&for=state:*`
+
+   Use a predicate clause starting with an ampersand (&) to separate it from your get clause and then a for followed by an in clause, if needed; e.g., &for=state:. Because we are looking for information in all the states, add a wildcard (*) to indicate all values; e.g., state:*. You can find the full list of available geographies in the examples page for the dataset:
+   
+   `https://api.census.gov/data/2019/pep/charagegroups/examples.html`
 
    As you can see, you can only search on the state, county, or national level for this dataset. Other datasets provide results for more types of geographic areas. Sometimes datasets change the number of geographies they publish from year to year.
 
@@ -278,7 +294,8 @@ You can copy your query results into a spreadsheet to clean it up and analyze it
 ```
 
 You can find examples of other queries for this dataset by clicking the link in the Examples column on the API datasets page, which takes you to this Example page:
-https://api.census.gov/data/2019/pep/charagegroups/examples.html
+
+`https://api.census.gov/data/2019/pep/charagegroups/examples.html`
 
 > **Tip**: As you begin to build queries, start with examples and expand upon them. This is a great way to learn how to use the Census Data API.
 
@@ -299,29 +316,45 @@ More details are available on the [ACS Variable Types page](https://www.census.g
 
 In our example, we will build an API call that provides data for the total number of Hmong people living in each U.S. state as determined by the 2019 American Community Survey 1-Year data. Format the search query URL as follows:
 
-https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&for=state:*
+`https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&for=state:*`
 
 Assemble components of this query by following these steps:
-1. Start your query with the host name:
-https://api.census.gov/data
-2. Add the data year to the query:
-https://api.census.gov/data/2019
-3. Add the dataset name acronym:
-https://api.census.gov/data/2019/acs/acs1
 
-   This is the base URL for this dataset. You can find dataset names by browsing the discovery tool: https://api.census.gov/data.html
+1. Start your query with the host name:
+
+   `https://api.census.gov/data`
+
+2. Add the data year to the query:
+
+   `https://api.census.gov/data/2019`
+
+3. Add the dataset name acronym:
+
+   `https://api.census.gov/data/2019/acs/acs1`
+
+   This is the base URL for this dataset. You can find dataset names by browsing the discovery tool:
+   
+   `https://api.census.gov/data.html`
 
 4. Add ?get= to the query:
-https://api.census.gov/data/2019/acs/acs1?get=
-5. Add your variables:
-https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M
 
-   In this dataset, the variable called NAME provides the geographic name you are using to limit your search. The variable B02015_009E provides the total number of Hmong people, and the variable B02015_009M is an attribute that will provide the corresponding margin of error. Use a comma to separate each variable; e.g.,?get=NAME,B02015_009E,B02015_009M. You can find the full list of available variables in the variables page for the dataset: https://api.census.gov/data/2019/acs/acs1/variables.html.
+   `https://api.census.gov/data/2019/acs/acs1?get=`
+
+5. Add your variables:
+
+   `https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M`
+
+   In this dataset, the variable called NAME provides the geographic name you are using to limit your search. The variable B02015_009E provides the total number of Hmong people, and the variable B02015_009M is an attribute that will provide the corresponding margin of error. Use a comma to separate each variable; e.g.,?get=NAME,B02015_009E,B02015_009M. You can find the full list of available variables in the variables page for the dataset:
+   
+   `https://api.census.gov/data/2019/acs/acs1/variables.html`
 
 6. Add your geographies:
-https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&for=state:*
 
-   Use a predicate clause starting with an ampersand (&) to separate it from your get clause and then a for followed by an in clause, if needed; e.g., &for=state:. Because we are looking for information in all the states, add a wildcard (*) to indicate all values; e.g., state:*. You can find the full list of available geographies in the examples page for the dataset: https://api.census.gov/data/2019/acs/acs1/examples.html
+   `https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&for=state:*`
+
+   Use a predicate clause starting with an ampersand (&) to separate it from your get clause and then a for followed by an in clause, if needed; e.g., &for=state:. Because we are looking for information in all the states, add a wildcard (*) to indicate all values; e.g., state:*. You can find the full list of available geographies in the examples page for the dataset:
+   
+   `https://api.census.gov/data/2019/acs/acs1/examples.html`
 
 The query configures the first rows of output as follows:
 
@@ -342,7 +375,7 @@ The query configures the first rows of output as follows:
 
 “Null” occurs as a result when there is no data entered for that answer. You can find other examples of searches in this dataset by clicking the link in the “Examples” column on the API datasets page, which will take you to the examples page here:
 
-https://api.census.gov/data/2019/acs/acs1/examples.html
+`https://api.census.gov/data/2019/acs/acs1/examples.html`
 
 > **Tip:** If your query returns an error message with no data, check your spelling, capitalization, and spacing. Correct it, and run it again.
 
@@ -350,26 +383,40 @@ https://api.census.gov/data/2019/acs/acs1/examples.html
 
 If you want data for all variables in a table, use the group functionality. This will give you results for all variables in one easy command, even if the table contains more than 50 variables. For example, this API query provides results for all variables in table B02015 in each state from the 2019 American Community Survey 1-Year Estimates
 
-https://api.census.gov/data/2019/acs/acs1?get=group(B02015)&for=state:*
+`https://api.census.gov/data/2019/acs/acs1?get=group(B02015)&for=state:*`
 
 Assemble components of this query by following these steps:
 1. Start your query with the host name:
-https://api.census.gov/data
-2. Add the data year to the query:
-https://api.census.gov/data/2019
-3. Add the dataset name acronym:
-https://api.census.gov/data/2019/acs/acs1
 
-   This is the base URL for this dataset. You can find dataset names by browsing the discovery tool: https://api.census.gov/data.html
+   `https://api.census.gov/data`
+
+2. Add the data year to the query:
+
+   `https://api.census.gov/data/2019`
+
+3. Add the dataset name acronym:
+
+   `https://api.census.gov/data/2019/acs/acs1`
+
+   This is the base URL for this dataset. You can find dataset names by browsing the discovery tool:
+   
+   `https://api.census.gov/data.html`
 
 4. Add ?get= to the query:
-https://api.census.gov/data/2019/acs/acs1?get=
-5. Add group and your desired table ID in parenthesis.
-https://api.census.gov/data/2019/acs/acs1?get=group(B02015)
-6. Add your geographies:
-https://api.census.gov/data/2019/acs/acs1?get=group(B02015)&for=state:*
 
-   Use a predicate clause starting with an ampersand (&) to separate it from your get clause and then a for followed by an in clause, if needed; e.g., &for=state:. Because we are looking for information in all the states, add a wildcard (*) to indicate all values; e.g.,**state**:*. You can find the full list of available geographies in the examples page for the dataset: https://api.census.gov/data/2019/acs/acs1/examples.html
+   `https://api.census.gov/data/2019/acs/acs1?get=`
+
+5. Add group and your desired table ID in parenthesis.
+
+   `https://api.census.gov/data/2019/acs/acs1?get=group(B02015)`
+
+6. Add your geographies:
+
+   `https://api.census.gov/data/2019/acs/acs1?get=group(B02015)&for=state:*`
+
+   Use a predicate clause starting with an ampersand (&) to separate it from your get clause and then a for followed by an in clause, if needed; e.g., &for=state:. Because we are looking for information in all the states, add a wildcard (*) to indicate all values; e.g., state:*. You can find the full list of available geographies in the examples page for the dataset:
+   
+   `https://api.census.gov/data/2019/acs/acs1/examples.html`
 
 The query provides the first rows of output as follows:
 ```json
@@ -382,40 +429,63 @@ In order to get the data in a viewable format, you can save the results as a .cs
 
 ### Time Series Dataset Example - International Trade Monthly Exports
 
-For some datasets available on the Census Data API, data are stored for multiple points of time in one dataset, rather than across several datasets for individual points of time. When this occurs, we refer to the dataset as a time series dataset. For more information on time series datasets, see the time series section for Predicate in this user guide. You can find the list of time series datasets on the Census Data API at: https://api.census.gov/data/timeseries.html
+For some datasets available on the Census Data API, data are stored for multiple points of time in one dataset, rather than across several datasets for individual points of time. When this occurs, we refer to the dataset as a time series dataset. For more information on time series datasets, see the time series section for Predicate in this user guide. You can find the list of time series datasets on the Census Data API at: 
+
+`https://api.census.gov/data/timeseries.html`
 
 In this example, we will build a query for one of the time series datasets in the API, *International Trade: Monthly U.S. Exports by End-Use Code* for the total export value (monthly and year-to-date) for all Customs districts for June 2016:
 
-https://api.census.gov/data/timeseries/intltrade/exports/enduse?get=DISTRICT,DIST_NAME,ALL_VAL_MO,ALL_VAL_YR&YEAR=2016&MONTH=06
+`https://api.census.gov/data/timeseries/intltrade/exports/enduse?get=DISTRICT,DIST_NAME,ALL_VAL_MO,ALL_VAL_YR&YEAR=2016&MONTH=06`
 
 Assemble components of this query by following these steps:
+
 1. Start your query with the host name:
-https://api.census.gov/data
+
+   `https://api.census.gov/data`
+
 2. Add timeseries to the query:
-https://api.census.gov/data/timeseries
+
+   `https://api.census.gov/data/timeseries`
+
 3. Add the dataset name acronym:
-https://api.census.gov/data/timeseries/intltrade/exports/enduse
 
-   This is the base URL for this dataset. You can find dataset names by browsing thediscovery tool: https://api.census.gov/data.html
-4. Add ?get= to the query: https://api.census.gov/data/timeseries/intltrade/exports/enduse?get=
+   `https://api.census.gov/data/timeseries/intltrade/exports/enduse`
 
-   Add your variables: https://api.census.gov/data/timeseries/intltrade/exports/enduse?get=DISTRICT,DIST_NAME, ALL_VAL_MO,ALL_VAL_YR
+   This is the base URL for this dataset. You can find dataset names by browsing the discovery tool:
+   
+   `https://api.census.gov/data.html`
+
+4. Add ?get= to the query:
+
+  `https://api.census.gov/data/timeseries/intltrade/exports/enduse?get=`
+
+   Add your variables:
+   
+   `https://api.census.gov/data/timeseries/intltrade/exports/enduse?get=DISTRICT,DIST_NAME, ALL_VAL_MO,ALL_VAL_YR`
 
    In this dataset, ALL_VAL_MO provides the total exports of goods in the month, and variable ALL_VAL_YR provides total exports of goods year to date. The variable DISTRICT provides the two-digit district code, and DIST_NAME provides the district name. You can find the full list of available variables in the variables page for the dataset:
-   https://api.census.gov/data/timeseries/intltrade/exports/enduse/variables.html
+
+   `https://api.census.gov/data/timeseries/intltrade/exports/enduse/variables.html`
 
    In the discovery tool, you will notice that the variable for DISTRICT has text that says “Default Displayed” in the required column. This indicates that the variable provides data for several categories. The default for this variable is to provide data for each available district code. If you are not sure what the default is for a variable, include it in an API call and view the results. This will help you decide if you want to keep the variable in your query as is or if you may want to limit the results by adding a variable predicate in your query. In this case, we will continue with the default to get data for all districts.
 
-5. Add the time period: https://api.census.gov/data/timeseries/intltrade/exports/enduse?get=DISTRICT,DIST_NAME,ALL_VAL_MO,ALL_VAL_YR&YEAR=2016&MONTH=06
+5. Add the time period:
+
+   `https://api.census.gov/data/timeseries/intltrade/exports/enduse?get=DISTRICT,DIST_NAME,ALL_VAL_MO,ALL_VAL_YR&YEAR=2016&MONTH=06`
 
    Adding the time period using the related predicate is required for this dataset. This will be in the format of a four digit year and two digit month.
    
-   **Tip**: You can also specify this required time range as &time=2016-06. See Section 5.1.5 Predicate in this user guide for building predicates for time series.
+   > **Tip**: You can also specify this required time range as `&time=2016-06`. See Section 5.1.5 Predicate in this user guide for building predicates for time series.
 
-6. Use the default geography: https://api.census.gov/data/timeseries/intltrade/exports/enduse?get=DISTRICT,DIST_NAME,ALL_VAL_MO,ALL_VAL_YR&YEAR=2016&MONTH=06
+6. Use the default geography:
+
+   `https://api.census.gov/data/timeseries/intltrade/exports/enduse?get=DISTRICT,DIST_NAME,ALL_VAL_MO,ALL_VAL_YR&YEAR=2016&MONTH=06`
 
    This dataset does not have any geography predicates we can add to further refine our results, as shown on the examples page.
-   https://api.census.gov/data/timeseries/intltrade/exports/enduse/examples.html.By default, we will get data for all exports in the United States.
+
+   `https://api.census.gov/data/timeseries/intltrade/exports/enduse/examples.html`
+   
+   By default, we will get data for all exports in the United States.
 
 The query configures the first rows of output of the query as follows:
 
@@ -448,13 +518,11 @@ Benefits of using ***&ucgid*** to select your geography:
 
 - It allows you to get data for multiple levels of geography in the same API query
 
-   Example: &ucgid=0400000US24,0500000US24017 provides results for Maryland and Charles County, MD
+   Example: `&ucgid=0400000US24,0500000US24017` provides results for Maryland and Charles County, MD
 
 - It allows you to access data for collections of geographies that are not accessible using the standard geography predicates
 
-   Example: &ucgid=pseudo(0400000US24$8600000) provides results for all ZIP Code
-
-   Tabulation Areas fully/partially within Maryland
+   Example: `&ucgid=pseudo(0400000US24$8600000)` provides results for all ZIP Code Tabulation Areas fully/partially within Maryland
 
 Drawbacks of using ***&ucgid*** to specify your geography:
 - You must specify the fully qualified GEOID of the area(s) you want to include in your query.
@@ -464,7 +532,7 @@ Drawbacks of using ***&ucgid*** to specify your geography:
 
 Use the ucgid predicate: ***&ucgid=*** and then type the fully qualified GEO ID. In the below example, the ucgid predicate provides results for New York city, NY &ucgid=1600000US3651000
 
->  https://api.census.gov/data/2022/acs/acs1/profile?get=NAME,DP05_0001E&ucgid=1600000US3651000`
+`https://api.census.gov/data/2022/acs/acs1/profile?get=NAME,DP05_0001E&ucgid=1600000US3651000`
 
 To specify individual geographies using ucgid, you will need to know the fully qualified GEO ID for that geography.
 
@@ -490,7 +558,7 @@ As an example, consider the fully qualified GEO ID for New York City, NY: 160000
 
 | Geography Name | Fully Qualified GEO ID | Ucgid Predicate |
 | -------- | -------- | -------- | 
-| Mohave County, Arizona | `0500000US04015`<br />050 = Summary level for county<br />00 = No geographic variant<br />00 = Not a geographic component US = United States<br />04 = Arizona<br />015 = Mohave County | `&ucgid=0500000US04015` |
+| Mohave County, Arizona | `0500000US04015`<br />050 = Summary level for county<br />00 = No geographic variant<br />00 = Not a geographic component<br />US = United States<br />04 = Arizona<br />015 = Mohave County | `&ucgid=0500000US04015` |
 | Houston-Pasadena-The Woodlands, Texas Metro Area | `310M600US26420`<br />310 = Summary level for metro/micro area<br />M6 = Variant for 2020 vintage of metro/micro areas<br />00 = Not a geographic component<br />US = United States<br />26420 = Houston-Pasadena-The Woodlands,TX Metro Area| `&ucgid=310M600US26420` |
 | Fern Forest CDP, Hawaii | `1600000US1507675`<br />160 = Summary level for place<br />00 = No geographic variant<br />00 = Not a geographic component<br />US = United States<br />15 = Hawaii<br />07675 = Fern Forest CDP | `&ucgid=1600000US1507675` |
 | ZIP Code Tabulation Area<br />(ZCTA) 15007| `860Z200US15007`<br />860 = Summary level for ZCTA<br />Z2 = Variant for 2020 vintage of ZCTAs<br />00 = Not a geographic component<br />US = United States<br />15007 = ZCTA 15007| `&ucgid=860Z200US15007` |
@@ -506,14 +574,14 @@ The ucgid predicate allows you to specify multiple geographies in the same API q
 
 Remember, &ucgid is an alternative option instead of using the standard geography predicates (&for and &in). An example query below shows how to use &ucgid to get total population for California and Oregon from the 2022 ACS 1-Year Data Profiles:
 
-> https://api.census.gov/data/2022/acs/acs1/profile?get=NAME,DP05_0001E&ucgid=0400000US06,0400000US41`
+`https://api.census.gov/data/2022/acs/acs1/profile?get=NAME,DP05_0001E&ucgid=0400000US06,0400000US41`
 
 ### Geographic Variants
 
 A geographic variant is a version of a geographic area based on the date its boundaries are intended to represent. Geographic variants only apply to specific types of geographic areas that need to be added or replaced by a more recent version, for example congressional districts when a state redraws its congressional district boundaries.
 
 > **Tip**: Geographies that commonly use geographic variants include: Congressional districts, state legislative districts, metropolitan/micropolitan statistical areas, ZIP Code tabulation areas (ZCTAs), urban areas, public use microdata areas (PUMAs), New England city and town areas (NECTAs).
-
+>
 > You must specify the correct geographic variant when using the ucgid predicate for these types of geographies. If you are unsure which variant applies to a dataset, reference the section below: Finding Fully Qualified GEO IDs.
 
 ### Geographic Components
@@ -551,9 +619,9 @@ The ucgid predicate also allows you to retrieve data for collections of geograph
 
 Use the ucgid predicate: &ucgid=pseudo and in parentheses, enter the joined parent/child GEO IDs. In the below example, the ucgid predicate provides results for All Counties within Maryland:
 
-&ucgid=pseudo(0400000US24$0500000)
+`&ucgid=pseudo(0400000US24$0500000)`
 
-> https://api.census.gov/data/2022/acs/acs1/profile?get=NAME,DP05_0001E&ucgid=pseudo(0400000US24$0500000)
+`https://api.census.gov/data/2022/acs/acs1/profile?get=NAME,DP05_0001E&ucgid=pseudo(0400000US24$0500000)`
 
 GEO IDs for collections of geographies (pseudo geos), consist of:
 
@@ -563,13 +631,13 @@ GEO IDs for collections of geographies (pseudo geos), consist of:
 
 As an example, consider the ucgid predicate for All Counties within Maryland:
 
-&ucgid=pseudo(0400000US24$0500000)
+`&ucgid=pseudo(0400000US24$0500000)`
 
 - 0400000US24 = Fully qualified GEO ID for Maryland (parent geography)
 - $ = Symbol that represents the joining of two geographies
-- 0500000 = All Counties (child geography)*
+- 0500000 = All Counties (child geography)\*
 
-   > *The first 3 characters always indicate the child geography’s summary level, in this case, 050 for counties. This is typically followed by four zeros, with a few exceptions noted in column B of the [List of Available Collections of Geographies](https://www2.census.gov/data/api-documentation/list-of-available-collections-of-geographies.xlsx).
+   > \*The first 3 characters always indicate the child geography’s summary level, in this case, 050 for counties. This is typically followed by four zeros, with a few exceptions noted in column B of the [List of Available Collections of Geographies](https://www2.census.gov/data/api-documentation/list-of-available-collections-of-geographies.xlsx).
 
 The [List of Available Collections of Geographies](https://www2.census.gov/data/api-documentation/list-of-available-collections-of-geographies.xlsx) also provides documentation of each possible geography collection that can be used in the API. Please be aware that not every collection of geography is available for every dataset. In most cases, collections of geographies are supported when a dataset provides data for the both the parent and child summary levels.
 
@@ -577,7 +645,7 @@ The [List of Available Collections of Geographies](https://www2.census.gov/data/
 
 | Geography Collection Name | GEO ID for Geography Collection  | Ucgid Predicate  |
 | ---------- | -------------------------------- | ---------------- |
-| All Counties within Arkansas | `0400000US05$0500000`<br />0400000US05 = Arkansas (parent geo)<br />$<br />0500000 = All counties (child geo)| `&ucgid=pseudo0400000US05$0500000)` |
+| All Counties within Arkansas | `0400000US05$0500000`<br />0400000US05 = Arkansas (parent geo)<br />$<br />0500000 = All counties (child geo)| `&ucgid=pseudo(0400000US05$0500000)` |
 | All Places within Louisiana | `0400000US22$1600000`<br />0400000US22 = Louisiana (parent geo)<br />$<br />1600000 = All places (child geo) | `&ucgid=pseudo(0400000US22$1600000)` |
 | All ZIP Code Tabulation Areas (ZCTAs) fully/partially within New Hampshire | `0400000US33$8600000`<br />0400000US33 = New Hampshire (parent geo)<br />$<br />8600000 = All ZCTAs (child geo) | `&ucgid=pseudo(0400000US33$8600000)` |
 | All Metropolitan and Micropolitan Statistical Areas fully/partially within Nebraska | `0400000US31$3100000`<br />0400000US31= Nebraska (parent geo)<br />$<br />3100000 = All metro/micro areas (child geo) | `&ucgid=pseudo(0400000US31$3100000)` |
@@ -588,13 +656,11 @@ The [List of Available Collections of Geographies](https://www2.census.gov/data/
 
 ## Query Limits
 
-You can include up to 50 variables in a single API query and can make up to 500 queries per IP address per day. More than 500 queries per IP address per day requires that you register for a
-Census key. That key will be part of your data request URL string.
+You can include up to 50 variables in a single API query and can make up to 500 queries per IP address per day. More than 500 queries per IP address per day requires that you register for a Census key. That key will be part of your data request URL string.
 
 Please keep in mind that all queries from a business or organization having multiple employees might employ a proxy service or firewall. This will make all of the users of that business or organization appear to have the same IP address. If multiple employees were making queries, the 500-query limit would be for the proxy server/firewall, not the individual user.
 
-You also need an API key if you create a mobile or web application that makes more than 500 queries to the API in a day. This cumulative limit is reached by adding up all instances when the
-application queries the Census Data API, even if multiple users access your application through different IP addresses.
+You also need an API key if you create a mobile or web application that makes more than 500 queries to the API in a day. This cumulative limit is reached by adding up all instances when the application queries the Census Data API, even if multiple users access your application through different IP addresses.
 
 ## API Key
 
@@ -611,8 +677,7 @@ Once, you have a key, insert **&key=** followed by your key code at the end of y
 
 **How-To Materials for Using the Census API**
 
-- https://www.census.gov/data/what-is-data-census-gov/guidance-for-data-users/how-to-materials-for-using-the-census-api.html Recorded webinars, short videos, and step-
-by-step PDF walkthroughs with screenshots
+- https://www.census.gov/data/what-is-data-census-gov/guidance-for-data-users/how-to-materials-for-using-the-census-api.html Recorded webinars, short videos, and step-by-step PDF walkthroughs with screenshots
 
 **Dataset Discovery Tool:**
 
